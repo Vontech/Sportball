@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDDF93EB1FBE822B003A906D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF93EA1FBE822B003A906D /* AppDelegate.swift */; };
+		FDDF93ED1FBE822B003A906D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF93EC1FBE822B003A906D /* ViewController.swift */; };
+		FDDF93EF1FBE822B003A906D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDF93EE1FBE822B003A906D /* Assets.xcassets */; };
+		FDDF93F21FBE822B003A906D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDDF93F01FBE822B003A906D /* Main.storyboard */; };
+		FDDF93FE1FBE822B003A906D /* SportballTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF93FD1FBE822B003A906D /* SportballTests.swift */; };
+		FDDF94091FBE822B003A906D /* SportballUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF94081FBE822B003A906D /* SportballUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDDF93FA1FBE822B003A906D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDDF93DF1FBE822B003A906D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDDF93E61FBE822B003A906D;
+			remoteInfo = Sportball;
+		};
+		FDDF94051FBE822B003A906D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDDF93DF1FBE822B003A906D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDDF93E61FBE822B003A906D;
+			remoteInfo = Sportball;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FDDF93E71FBE822B003A906D /* Sportball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportball.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDF93EA1FBE822B003A906D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FDDF93EC1FBE822B003A906D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FDDF93EE1FBE822B003A906D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDDF93F11FBE822B003A906D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FDDF93F31FBE822B003A906D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDDF93F41FBE822B003A906D /* Sportball.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sportball.entitlements; sourceTree = "<group>"; };
+		FDDF93F91FBE822B003A906D /* SportballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportballTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDF93FD1FBE822B003A906D /* SportballTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportballTests.swift; sourceTree = "<group>"; };
+		FDDF93FF1FBE822B003A906D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDDF94041FBE822B003A906D /* SportballUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportballUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDF94081FBE822B003A906D /* SportballUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportballUITests.swift; sourceTree = "<group>"; };
+		FDDF940A1FBE822B003A906D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDDF93E41FBE822B003A906D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDF93F61FBE822B003A906D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDF94011FBE822B003A906D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDDF93DE1FBE822B003A906D = {
+			isa = PBXGroup;
+			children = (
+				FDDF93E91FBE822B003A906D /* Sportball */,
+				FDDF93FC1FBE822B003A906D /* SportballTests */,
+				FDDF94071FBE822B003A906D /* SportballUITests */,
+				FDDF93E81FBE822B003A906D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDDF93E81FBE822B003A906D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDDF93E71FBE822B003A906D /* Sportball.app */,
+				FDDF93F91FBE822B003A906D /* SportballTests.xctest */,
+				FDDF94041FBE822B003A906D /* SportballUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDDF93E91FBE822B003A906D /* Sportball */ = {
+			isa = PBXGroup;
+			children = (
+				FDDF93EA1FBE822B003A906D /* AppDelegate.swift */,
+				FDDF93EC1FBE822B003A906D /* ViewController.swift */,
+				FDDF93EE1FBE822B003A906D /* Assets.xcassets */,
+				FDDF93F01FBE822B003A906D /* Main.storyboard */,
+				FDDF93F31FBE822B003A906D /* Info.plist */,
+				FDDF93F41FBE822B003A906D /* Sportball.entitlements */,
+			);
+			path = Sportball;
+			sourceTree = "<group>";
+		};
+		FDDF93FC1FBE822B003A906D /* SportballTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDDF93FD1FBE822B003A906D /* SportballTests.swift */,
+				FDDF93FF1FBE822B003A906D /* Info.plist */,
+			);
+			path = SportballTests;
+			sourceTree = "<group>";
+		};
+		FDDF94071FBE822B003A906D /* SportballUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDDF94081FBE822B003A906D /* SportballUITests.swift */,
+				FDDF940A1FBE822B003A906D /* Info.plist */,
+			);
+			path = SportballUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDDF93E61FBE822B003A906D /* Sportball */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDDF940D1FBE822B003A906D /* Build configuration list for PBXNativeTarget "Sportball" */;
+			buildPhases = (
+				FDDF93E31FBE822B003A906D /* Sources */,
+				FDDF93E41FBE822B003A906D /* Frameworks */,
+				FDDF93E51FBE822B003A906D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sportball;
+			productName = Sportball;
+			productReference = FDDF93E71FBE822B003A906D /* Sportball.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FDDF93F81FBE822B003A906D /* SportballTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDDF94101FBE822B003A906D /* Build configuration list for PBXNativeTarget "SportballTests" */;
+			buildPhases = (
+				FDDF93F51FBE822B003A906D /* Sources */,
+				FDDF93F61FBE822B003A906D /* Frameworks */,
+				FDDF93F71FBE822B003A906D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDDF93FB1FBE822B003A906D /* PBXTargetDependency */,
+			);
+			name = SportballTests;
+			productName = SportballTests;
+			productReference = FDDF93F91FBE822B003A906D /* SportballTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDDF94031FBE822B003A906D /* SportballUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDDF94131FBE822B003A906D /* Build configuration list for PBXNativeTarget "SportballUITests" */;
+			buildPhases = (
+				FDDF94001FBE822B003A906D /* Sources */,
+				FDDF94011FBE822B003A906D /* Frameworks */,
+				FDDF94021FBE822B003A906D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDDF94061FBE822B003A906D /* PBXTargetDependency */,
+			);
+			name = SportballUITests;
+			productName = SportballUITests;
+			productReference = FDDF94041FBE822B003A906D /* SportballUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDDF93DF1FBE822B003A906D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Vontech Software, LLC";
+				TargetAttributes = {
+					FDDF93E61FBE822B003A906D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					FDDF93F81FBE822B003A906D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FDDF93E61FBE822B003A906D;
+					};
+					FDDF94031FBE822B003A906D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FDDF93E61FBE822B003A906D;
+					};
+				};
+			};
+			buildConfigurationList = FDDF93E21FBE822B003A906D /* Build configuration list for PBXProject "Sportball" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDDF93DE1FBE822B003A906D;
+			productRefGroup = FDDF93E81FBE822B003A906D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDDF93E61FBE822B003A906D /* Sportball */,
+				FDDF93F81FBE822B003A906D /* SportballTests */,
+				FDDF94031FBE822B003A906D /* SportballUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDDF93E51FBE822B003A906D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDF93EF1FBE822B003A906D /* Assets.xcassets in Resources */,
+				FDDF93F21FBE822B003A906D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDF93F71FBE822B003A906D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDF94021FBE822B003A906D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDDF93E31FBE822B003A906D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDF93ED1FBE822B003A906D /* ViewController.swift in Sources */,
+				FDDF93EB1FBE822B003A906D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDF93F51FBE822B003A906D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDF93FE1FBE822B003A906D /* SportballTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDDF94001FBE822B003A906D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDF94091FBE822B003A906D /* SportballUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDDF93FB1FBE822B003A906D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDDF93E61FBE822B003A906D /* Sportball */;
+			targetProxy = FDDF93FA1FBE822B003A906D /* PBXContainerItemProxy */;
+		};
+		FDDF94061FBE822B003A906D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDDF93E61FBE822B003A906D /* Sportball */;
+			targetProxy = FDDF94051FBE822B003A906D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FDDF93F01FBE822B003A906D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDDF93F11FBE822B003A906D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FDDF940B1FBE822B003A906D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FDDF940C1FBE822B003A906D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		FDDF940E1FBE822B003A906D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sportball/Sportball.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sportball/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.Sportball;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		FDDF940F1FBE822B003A906D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sportball/Sportball.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sportball/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.Sportball;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		FDDF94111FBE822B003A906D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SportballTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.SportballTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sportball.app/Contents/MacOS/Sportball";
+			};
+			name = Debug;
+		};
+		FDDF94121FBE822B003A906D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SportballTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.SportballTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sportball.app/Contents/MacOS/Sportball";
+			};
+			name = Release;
+		};
+		FDDF94141FBE822B003A906D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SportballUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.SportballUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Sportball;
+			};
+			name = Debug;
+		};
+		FDDF94151FBE822B003A906D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SportballUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.SportballUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Sportball;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDDF93E21FBE822B003A906D /* Build configuration list for PBXProject "Sportball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDF940B1FBE822B003A906D /* Debug */,
+				FDDF940C1FBE822B003A906D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDDF940D1FBE822B003A906D /* Build configuration list for PBXNativeTarget "Sportball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDF940E1FBE822B003A906D /* Debug */,
+				FDDF940F1FBE822B003A906D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDDF94101FBE822B003A906D /* Build configuration list for PBXNativeTarget "SportballTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDF94111FBE822B003A906D /* Debug */,
+				FDDF94121FBE822B003A906D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDDF94131FBE822B003A906D /* Build configuration list for PBXNativeTarget "SportballUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDF94141FBE822B003A906D /* Debug */,
+				FDDF94151FBE822B003A906D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FDDF93DF1FBE822B003A906D /* Project object */;
+}
