@@ -13,6 +13,9 @@
 		FDDF93F21FBE822B003A906D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDDF93F01FBE822B003A906D /* Main.storyboard */; };
 		FDDF93FE1FBE822B003A906D /* SportballTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF93FD1FBE822B003A906D /* SportballTests.swift */; };
 		FDDF94091FBE822B003A906D /* SportballUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF94081FBE822B003A906D /* SportballUITests.swift */; };
+		FDDF94171FBE8248003A906D /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF94161FBE8248003A906D /* WindowController.swift */; };
+		FDDF94191FBE860E003A906D /* NonBugWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF94181FBE860E003A906D /* NonBugWindow.swift */; };
+		FDDF941B1FBF9CB7003A906D /* TouchBarIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF941A1FBF9CB7003A906D /* TouchBarIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		FDDF94041FBE822B003A906D /* SportballUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportballUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDF94081FBE822B003A906D /* SportballUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportballUITests.swift; sourceTree = "<group>"; };
 		FDDF940A1FBE822B003A906D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDDF94161FBE8248003A906D /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		FDDF94181FBE860E003A906D /* NonBugWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBugWindow.swift; sourceTree = "<group>"; };
+		FDDF941A1FBF9CB7003A906D /* TouchBarIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,9 @@
 				FDDF93F01FBE822B003A906D /* Main.storyboard */,
 				FDDF93F31FBE822B003A906D /* Info.plist */,
 				FDDF93F41FBE822B003A906D /* Sportball.entitlements */,
+				FDDF94161FBE8248003A906D /* WindowController.swift */,
+				FDDF94181FBE860E003A906D /* NonBugWindow.swift */,
+				FDDF941A1FBF9CB7003A906D /* TouchBarIdentifiers.swift */,
 			);
 			path = Sportball;
 			sourceTree = "<group>";
@@ -258,6 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDDF93ED1FBE822B003A906D /* ViewController.swift in Sources */,
+				FDDF94171FBE8248003A906D /* WindowController.swift in Sources */,
+				FDDF941B1FBF9CB7003A906D /* TouchBarIdentifiers.swift in Sources */,
+				FDDF94191FBE860E003A906D /* NonBugWindow.swift in Sources */,
 				FDDF93EB1FBE822B003A906D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +432,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Sportball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12.1;
 				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.Sportball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -435,6 +448,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Sportball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12.1;
 				PRODUCT_BUNDLE_IDENTIFIER = vontech.org.Sportball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
