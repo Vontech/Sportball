@@ -12,6 +12,7 @@
 		AC3AE8AD2DBA99C41914286B /* Pods_SportballTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D76841218BDFBA91BE3D2 /* Pods_SportballTests.framework */; };
 		FD3619151FBFF36500EFC07A /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3619141FBFF36500EFC07A /* DataFetcher.swift */; };
 		FD3619171FC0F32500EFC07A /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3619161FC0F32500EFC07A /* SwiftHEXColors.swift */; };
+		FD36191B1FC143A900EFC07A /* logos in Resources */ = {isa = PBXBuildFile; fileRef = FD36191A1FC143A900EFC07A /* logos */; };
 		FDDF93EB1FBE822B003A906D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF93EA1FBE822B003A906D /* AppDelegate.swift */; };
 		FDDF93ED1FBE822B003A906D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDF93EC1FBE822B003A906D /* ViewController.swift */; };
 		FDDF93EF1FBE822B003A906D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDF93EE1FBE822B003A906D /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		E8869168D9F9445B5C0787DC /* Pods_Sportball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sportball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3619141FBFF36500EFC07A /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		FD3619161FC0F32500EFC07A /* SwiftHEXColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHEXColors.swift; sourceTree = "<group>"; };
+		FD36191A1FC143A900EFC07A /* logos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = logos; path = Sportball/logos; sourceTree = "<group>"; };
 		FDDF93E71FBE822B003A906D /* Sportball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDF93EA1FBE822B003A906D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDDF93EC1FBE822B003A906D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,9 +123,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FD3619181FC110CD00EFC07A /* logos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = logos;
+			sourceTree = "<group>";
+		};
 		FDDF93DE1FBE822B003A906D = {
 			isa = PBXGroup;
 			children = (
+				FD36191A1FC143A900EFC07A /* logos */,
 				FDDF93E91FBE822B003A906D /* Sportball */,
 				FDDF93FC1FBE822B003A906D /* SportballTests */,
 				FDDF94071FBE822B003A906D /* SportballUITests */,
@@ -146,6 +156,7 @@
 		FDDF93E91FBE822B003A906D /* Sportball */ = {
 			isa = PBXGroup;
 			children = (
+				FD3619181FC110CD00EFC07A /* logos */,
 				FDDF93EA1FBE822B003A906D /* AppDelegate.swift */,
 				FDDF93EC1FBE822B003A906D /* ViewController.swift */,
 				FDDF93EE1FBE822B003A906D /* Assets.xcassets */,
@@ -295,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD36191B1FC143A900EFC07A /* logos in Resources */,
 				FDDF93EF1FBE822B003A906D /* Assets.xcassets in Resources */,
 				FDDF93F21FBE822B003A906D /* Main.storyboard in Resources */,
 			);

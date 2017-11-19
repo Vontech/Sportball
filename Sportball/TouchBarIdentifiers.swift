@@ -15,6 +15,7 @@ extension NSTouchBarItem.Identifier {
     static let teamLabelItem = NSTouchBarItem.Identifier("org.vontech.TeamLabel")
     static let scoreLabelItem = NSTouchBarItem.Identifier("org.vontech.ScoreLabel")
     static let errorLabelItem = NSTouchBarItem.Identifier("org.vontech.ErrorLabel")
+    static let scrolledItem = NSTouchBarItem.Identifier("org.vontech.ScrollLabel")
 }
 
 @available(OSX 10.12.2, *)
