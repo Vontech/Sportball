@@ -12,6 +12,9 @@ import AppKit
 extension NSTouchBarItem.Identifier {
     static let configLabelItem = NSTouchBarItem.Identifier("org.vontech.InfoLabel")
     static let titleLabelItem = NSTouchBarItem.Identifier("org.vontech.TitleLabel")
+    static let teamLabelItem = NSTouchBarItem.Identifier("org.vontech.TeamLabel")
+    static let scoreLabelItem = NSTouchBarItem.Identifier("org.vontech.ScoreLabel")
+    static let errorLabelItem = NSTouchBarItem.Identifier("org.vontech.ErrorLabel")
 }
 
 @available(OSX 10.12.2, *)

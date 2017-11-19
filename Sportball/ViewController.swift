@@ -8,60 +8,89 @@
 
 import Cocoa
 
+
 // For now I am putting the class definition for games in this file, but ideally
 // we should move this elsewhere later
 
-@available(OSX 10.12.2, *)
-class Game {
-    
-    var identifier, teamOneName, teamTwoName : String
-    var teamOneScore, teamTwoScore : Int
-    var teamOneColor, teamTwoColor : NSColor
-    var teamOneImage, teamTwoImage : String
-    var touchBarIdentifier : NSTouchBarItem.Identifier
-    
-    init(identifier: String, teamOneName: String, teamTwoName: String,
-         teamOneColor: NSColor, teamTwoColor: NSColor, teamOneImage: String,
-         teamTwoImage: String) {
-        self.identifier = identifier
-        self.touchBarIdentifier = NSTouchBarItem.Identifier("org.vontech.GameLabel:" + identifier)
-        self.teamOneName = teamOneName
-        self.teamTwoName = teamTwoName
-        self.teamOneColor = teamOneColor
-        self.teamTwoColor = teamTwoColor
-        self.teamOneImage = teamOneImage
-        self.teamTwoImage = teamTwoImage
-        self.teamOneScore = 0
-        self.teamTwoScore = 0
-    }
-    
+struct GameResponse: Decodable {
+    let week: Int
+    let games: [DGame]
+}
+
+struct DGame: Decodable {
+    let eid: String
+    let gsis: String
+    let d: String
+    let t: String
+    let q: String
+    let h: String
+    let hnn: String
+    let hs: String
+    let v: String
+    let vnn: String
+    let vs: String
+    let rz: String
+    let ga: String
+    let gt: String
 }
 
 @available(OSX 10.12.2, *)
 class ViewController: NSViewController {
     
-    var games: [NSTouchBarItem.Identifier: Game] = [:]
+    // Instantiate list of games
+    var games: [String: DGame] = [:]
+    
+    // Instantiate list of colors for each team
+    var colors: [String : NSColor] = [
+        "cardinals": NSColor(hexString: "#B0063A")!,
+        "falcons": NSColor(hexString: "#A6192E")!,
+        "ravens": NSColor(hexString: "#241773")!,
+        "bills": NSColor(hexString: "#C8102E")!,
+        "panthers": NSColor(hexString: "#0085CA")!,
+        "bears": NSColor(hexString: "#DC4405")!,
+        "bengals": NSColor(hexString: "#FC4C02")!,
+        "browns": NSColor(hexString: "#382F2D")!,
+        "cowboys": NSColor(hexString: "#041E42")!,
+        "broncos": NSColor(hexString: "#FC4C02")!,
+        "lions": NSColor(hexString: "#0069B1")!,
+        "packers": NSColor(hexString: "#175E33")!,
+        "texans": NSColor(hexString: "#A6192E")!,
+        "colts": NSColor(hexString: "#001489")!,
+        "jaguars": NSColor(hexString: "#D49F12")!,
+        "chiefs": NSColor(hexString: "#C8102E")!,
+        "chargers": NSColor(hexString: "#0C2340")!,
+        "rams": NSColor(hexString: "#866D4B")!,
+        "dolphins": NSColor(hexString: "#008E97")!,
+        "vikings": NSColor(hexString: "#512D6D")!,
+        "patriots": NSColor(hexString: "#C8102E")!,
+        "saints": NSColor(hexString: "#A28D5B")!,
+        "giants": NSColor(hexString: "#001E62")!,
+        "jets": NSColor(hexString: "#0C371D")!,
+        "raiders": NSColor(hexString: "#101820")!,
+        "eagles": NSColor(hexString: "#064C53")!,
+        "steelers": NSColor(hexString: "#FFB81C")!,
+        "49ers": NSColor(hexString: "#9B2743")!,
+        "seahawks": NSColor(hexString: "#245998")!,
+        "buccaneers": NSColor(hexString: "#C8102E")!,
+        "titans": NSColor(hexString: "#4B92DB")!,
+        "redskins": NSColor(hexString: "#862633")!
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // TEST
-        let testColor = NSColor(red:0.35, green:0.61, blue:0.35, alpha:1.00)
-        let testImage = "http://google.com/"
-        for i in 1...10 {
-            let ident = String(i)
-            let newGame1 = Game(identifier: ident, teamOneName: "Celtics", teamTwoName: "Lakers", teamOneColor: testColor, teamTwoColor: testColor, teamOneImage: testImage, teamTwoImage: testImage)
-            games[newGame1.touchBarIdentifier] = newGame1
+        
+        do {
+            let response: GameResponse = (try getScores())!
+            for game in response.games {
+                games[game.eid] = game
+            }
+        } catch {
+            games = [:]
         }
+        
         
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-    
     @IBAction func clickGame(_ sender: NSSegmentedControl) {
         switch sender.selectedSegment {
         case 0:
@@ -71,6 +100,23 @@ class ViewController: NSViewController {
         default:
             break
         }
+    }
+    
+    func getScores() throws -> GameResponse? {
+        let dataAddress = "http://vontech.org/api/sportball"
+        let url = URL(string: dataAddress)!
+        let jsonData = try Data(contentsOf: url)
+        let jsonDecoder = JSONDecoder()
+        let response = try jsonDecoder.decode(GameResponse.self, from: jsonData)
+        return response
+    }
+    
+    func getTeamIdentifierFromGame(game: DGame) -> NSTouchBarItem.Identifier {
+        return NSTouchBarItem.Identifier("org.vontech.TeamLabel:" + game.eid)
+    }
+    
+    func getScoreIdentifierFromGame(game: DGame) -> NSTouchBarItem.Identifier {
+        return NSTouchBarItem.Identifier("org.vontech.ScoreLabel:" + game.eid)
     }
 
 }
@@ -105,6 +151,23 @@ class ViewController: NSViewController {
 @available(OSX 10.12.2, *)
 extension ViewController: NSTouchBarDelegate {
     
+    // Why doesn't this work?
+    func imageFromTextField(_ textField : NSTextField) -> NSImage {
+        
+        let myRect : NSRect = view.bounds
+        let imgSize : NSSize = myRect.size
+        
+        let bir : NSBitmapImageRep = textField.bitmapImageRepForCachingDisplay(in: myRect)!
+        bir.size = imgSize
+        textField.cacheDisplay(in: myRect, to: bir)
+        
+        let image : NSImage = NSImage(size: imgSize)
+        image.addRepresentation(bir)
+
+        return image;
+        
+    }
+    
     override func makeTouchBar() -> NSTouchBar? {
         
         let touchBar = NSTouchBar()
@@ -114,7 +177,13 @@ extension ViewController: NSTouchBarDelegate {
         touchBar.customizationAllowedItemIdentifiers = [.titleLabelItem]
         
         for game in self.games.keys {
-            touchBar.defaultItemIdentifiers.append(game)
+            let g = self.games[game]
+            touchBar.defaultItemIdentifiers.append(getTeamIdentifierFromGame(game: g!))
+            touchBar.defaultItemIdentifiers.append(getScoreIdentifierFromGame(game: g!))
+        }
+        
+        if self.games.count == 0 {
+            touchBar.defaultItemIdentifiers.append(.errorLabelItem)
         }
         
         return touchBar
@@ -122,38 +191,47 @@ extension ViewController: NSTouchBarDelegate {
     }
     
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        switch identifier {
-        case NSTouchBarItem.Identifier.titleLabelItem:
+        
+        let comps = identifier.rawValue.components(separatedBy: ":")
+        let type = comps[0]
+        
+        switch type {
+        case NSTouchBarItem.Identifier.titleLabelItem.rawValue:
             // If it was the title, add the title
             let customViewItem = NSCustomTouchBarItem(identifier: identifier)
             customViewItem.view = NSTextField(labelWithString: "Sportball")
             return customViewItem
-        case NSTouchBarItem.Identifier.configLabelItem:
+        case NSTouchBarItem.Identifier.errorLabelItem.rawValue:
+            // If it was the title, add the title
+            let customViewItem = NSCustomTouchBarItem(identifier: identifier)
+            customViewItem.view = NSTextField(labelWithString: "No games are currently available; please try again later.")
+            return customViewItem
+        case NSTouchBarItem.Identifier.teamLabelItem.rawValue:
+            // If it was not anything from above, it must be a game, so add it!
+            let game: DGame = self.games[comps[1]]!
+            let title = game.h + " vs. " + game.v
+            
+            let gameItem = NSCustomTouchBarItem(identifier: identifier)
+            let button = NSButton(title: title, target: self, action: #selector(clickGame(_:)))
+            button.bezelColor = self.colors[game.hnn]
+            gameItem.view = button
+            return gameItem
+        case NSTouchBarItem.Identifier.scoreLabelItem.rawValue:
             let customActionItem = NSCustomTouchBarItem(identifier: identifier)
-            let segmentedControl = NSSegmentedControl(images: [NSImage(named: NSImage.Name.removeTemplate)!, NSImage(named: NSImage.Name.addTemplate)!], trackingMode: .momentary, target: self, action: #selector(clickGame(_:)))
-            //segmentedControl.bezelColor = NSColor(red:0.35, green:0.61, blue:0.35, alpha:1.00)
+
+            //let teamOneImage = NSImage(named: NSImage.Name.removeTemplate)!
+            //let teamTwoImage = NSImage(named: NSImage.Name.addTemplate)!
+            let game: DGame = self.games[comps[1]]!
+            let teamOneScore = String(game.hs)
+            let teamTwoScore = String(game.vs)
+
+            let segmentedControl = NSSegmentedControl(labels: [teamOneScore, teamTwoScore], trackingMode: .momentary, target: self, action: #selector(clickGame(_:)))
             segmentedControl.setWidth(40, forSegment: 0)
             segmentedControl.setWidth(40, forSegment: 1)
             customActionItem.view = segmentedControl
             return customActionItem
         default:
-            // If it was not anything from above, it must be a game, so add it!
-            let game = self.games[identifier]
-            let title = game!.teamOneName + " vs. " + game!.teamTwoName
-            
-            let gameItem = NSCustomTouchBarItem(identifier: identifier)
-            let button = NSButton(title: title, target: self, action: #selector(clickGame(_:)))
-            button.bezelColor = game!.teamTwoColor
-            gameItem.view = button
-            return gameItem
-            
-            //let customActionItem = NSCustomTouchBarItem(identifier: identifier)
-            //let segmentedControl = NSSegmentedControl(images: [NSImage(named: NSImage.Name.removeTemplate)!, NSImage(named: NSImage.Name.addTemplate)!], trackingMode: .momentary, target: self, action: #selector(clickGame(_:)))
-            //segmentedControl.bezelColor = NSColor(red:0.35, green:0.61, blue:0.35, alpha:1.00)
-            //segmentedControl.setWidth(40, forSegment: 0)
-            //segmentedControl.setWidth(40, forSegment: 1)
-            //customActionItem.view = segmentedControl
-            //return customActionItem
+            return nil
         }
     }
     
