@@ -290,14 +290,31 @@ extension ViewController: NSTouchBarDelegate {
 //            scrubber.dataSource = self
 //            scrubberItem.view = scrubber
             
-            let sv = NSScrollView()
+            let sv = NSScrollView(frame: NSRect(x: 0, y: 0, width: 400, height: 30))
+            let constraintViews = NSMutableDictionary()
+            let documentView = NSView(frame: NSZeroRect)
+            var layoutFormat = "H:|-8-"
+            var size = NSSize(width: 8, height: 30)
             
             for game in self.games_indexed {
-                
+                let objectName = NSString(format: "button%@", game.eid)
                 let button = NSButton(title: game.vs + " | " + game.hs, image: getImageFromTeamName(team: game.vnn)!, target: nil, action: nil)
+                button.translatesAutoresizingMaskIntoConstraints = false
                 button.bezelColor = self.colors[game.hnn]
-                sv.addSubview(button)
+                documentView.addSubview(button)
+                layoutFormat.append(String(format: "[%@]-8-", objectName))
+                constraintViews.setObject(button, forKey: objectName)
+                size.width += 8 + button.intrinsicContentSize.width
             }
+            
+            layoutFormat.append("|")
+            
+            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: layoutFormat, options: NSLayoutConstraint.FormatOptions.alignAllCenterY, metrics: nil, views: constraintViews as! [String : Any])
+            
+            NSLayoutConstraint.activate(hConstraints)
+            
+            documentView.frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)
+            sv.documentView = documentView
             
             scrubberItem.view = sv
             
