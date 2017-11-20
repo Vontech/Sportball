@@ -40,6 +40,7 @@ class ViewController: NSViewController {
     // Instantiate list of games
     var games: [String: DGame] = [:]
     var games_indexed: [DGame] = []
+    var gameResponse: GameResponse? = nil
     
     // Instantiate list of colors for each team
     var colors: [String : NSColor] = [
@@ -110,8 +111,8 @@ class ViewController: NSViewController {
         let url = URL(string: dataAddress)!
         let jsonData = try Data(contentsOf: url)
         let jsonDecoder = JSONDecoder()
-        let response = try jsonDecoder.decode(GameResponse.self, from: jsonData)
-        return response
+        gameResponse = try jsonDecoder.decode(GameResponse.self, from: jsonData)
+        return gameResponse
     }
     
     func getTeamIdentifierFromGame(game: DGame) -> NSTouchBarItem.Identifier {
@@ -132,52 +133,19 @@ class ViewController: NSViewController {
         teamLogo.size.width = 40
         return teamLogo
     }
-
-}
-
-// MARK: - Scrubber DataSource & Delegate
-
-// WE WILL WANT TO USE THIS FOR HOLDING ALL OF THE GAMES
-
-@available(OSX 10.12.2, *)
-extension ViewController: NSScrubberDataSource, NSScrubberDelegate {
-
-    func numberOfItems(for scrubber: NSScrubber) -> Int {
-        return self.games.count
+    
+    func getGameCenterFromGame(g: DGame) -> String? {
+        
+        // eid, year, reg week, visiting@home
+        return String(format: "http://www.nfl.com/gamecenter/%@/%@/%@/%@@%@",
+                      g.eid, "2017", g.gt + String(self.gameResponse!.week), g.vnn, g.hnn)
+        
     }
-
-    func scrubber(_ scrubber: NSScrubber, viewForItemAt index: Int) -> NSScrubberItemView {
-        let itemView = scrubber.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "GameScrubberView"), owner: nil) as NSScrubberItemView?
-        //itemView.textField.stringValue = String(index)
-        
-        let g: DGame = self.games_indexed[index]
-        let logo1 = NSImageView(image: getImageFromTeamName(team: g.vnn)!)
-        let logo2 = NSImageView(image: getImageFromTeamName(team: g.hnn)!)
-        let scores = NSTextField(labelWithString: g.vs + " | " + g.hs)
-        
-        logo1.frame.size.width = 40
-        logo1.frame.size.height = 40
-        logo2.frame.size.width = 40
-        logo2.frame.size.height = 40
-        
-        //itemView!.addSubview(logo1)
-        //itemView!.addSubview(scores)
-        //itemView!.addSubview(logo2)
-        //itemView!.layer?.backgroundColor = self.colors[g.hnn]?.cgColor
-        
-        let button = NSButton(title: g.vs + " | " + g.hs, image: getImageFromTeamName(team: g.vnn)!, target: nil, action: nil)
-        button.bezelColor = self.colors[g.hnn]
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.frame.size.width = 100
-        button.addSubview(scores)
-        itemView!.addSubview(button)
-        //itemView!.translatesAutoresizingMaskIntoConstraints = f
-        
-        return itemView!
-    }
-
-    func scrubber(_ scrubber: NSScrubber, didSelectItemAt index: Int) {
-        print(index)
+    
+    @objc func goToGameCenter(_ sender: NSButton) {
+        let urlString = getGameCenterFromGame(g: self.games_indexed[sender.tag])
+        //print(urlString)
+        NSWorkspace.shared.open(NSURL(string: urlString!)! as URL)
     }
 
 }
@@ -209,14 +177,8 @@ extension ViewController: NSTouchBarDelegate {
         let touchBar = NSTouchBar()
         touchBar.delegate = self
         touchBar.customizationIdentifier = .sportballBar
-        touchBar.defaultItemIdentifiers = [.titleLabelItem, .fixedSpaceLarge]
+        touchBar.defaultItemIdentifiers = [.titleLabelItem, .fixedSpaceSmall]
         touchBar.customizationAllowedItemIdentifiers = [.titleLabelItem]
-        
-        for game in self.games.keys {
-            let g = self.games[game]
-            //touchBar.defaultItemIdentifiers.append(getTeamIdentifierFromGame(game: g!))
-            //touchBar.defaultItemIdentifiers.append(getScoreIdentifierFromGame(game: g!))
-        }
         
         if self.games.count == 0 {
             touchBar.defaultItemIdentifiers.append(.errorLabelItem)
@@ -244,51 +206,8 @@ extension ViewController: NSTouchBarDelegate {
             let customViewItem = NSCustomTouchBarItem(identifier: identifier)
             customViewItem.view = NSTextField(labelWithString: "No games are currently available; please try again later.")
             return customViewItem
-        case NSTouchBarItem.Identifier.teamLabelItem.rawValue:
-            // If it was not anything from above, it must be a game, so add it!
-            let game: DGame = self.games[comps[1]]!
-            let title = game.v + "  " + game.vs + "  |  " + game.hs + "  " + game.h
-            
-            let teamOneImage = getImageFromTeamName(team: game.vnn)!
-            let teamTwoImage = getImageFromTeamName(team: game.hnn)!
-            
-            let gameItem = NSCustomTouchBarItem(identifier: identifier)
-            //let button = NSButton(title: title, target: self, action: #selector(clickGame(_:)))
-            let button = NSButton(image: teamTwoImage, target: self, action: #selector(clickGame(_:)))
-            print("---")
-            print(button.frame.size.width)
-            print(teamTwoImage.size.width)
-            button.frame.size.width = teamTwoImage.size.width
-            print(button.frame.size.width)
-            print(teamTwoImage.size.width)
-            button.bezelColor = self.colors[game.hnn]
-            gameItem.view = button
-            return gameItem
-        case NSTouchBarItem.Identifier.scoreLabelItem.rawValue:
-            let customActionItem = NSCustomTouchBarItem(identifier: identifier)
-
-            let game: DGame = self.games[comps[1]]!
-            let teamOneScore = String(game.hs)
-            let teamTwoScore = String(game.vs)
-            let teamOneImage = getImageFromTeamName(team: game.vnn)!
-            let teamTwoImage = getImageFromTeamName(team: game.hnn)!
-
-            //let segmentedControl = NSSegmentedControl(labels: [teamOneScore, teamTwoScore], trackingMode: .momentary, target: self, action: #selector(clickGame(_:)))
-            let segmentedControl = NSSegmentedControl(images: [teamOneImage, teamTwoImage], trackingMode: .momentary, target: self, action: #selector(clickGame(_:)))
-            segmentedControl.setWidth(40, forSegment: 0)
-            segmentedControl.setWidth(40, forSegment: 1)
-            customActionItem.view = segmentedControl
-            return customActionItem
-            
         case NSTouchBarItem.Identifier.scrolledItem.rawValue:
-            let scrubberItem = NSCustomTouchBarItem(identifier: identifier)
-//            let scrubber = NSScrubber()
-//            scrubber.scrubberLayout = NSScrubberFlowLayout()
-//            scrubber.register(NSScrubberTextItemView.self, forItemIdentifier: NSUserInterfaceItemIdentifier(rawValue: "GameScrubberView"))
-//            scrubber.mode = .free
-//            scrubber.delegate = self
-//            scrubber.dataSource = self
-//            scrubberItem.view = scrubber
+            let scrollItem = NSCustomTouchBarItem(identifier: identifier)
             
             let sv = NSScrollView(frame: NSRect(x: 0, y: 0, width: 400, height: 30))
             let constraintViews = NSMutableDictionary()
@@ -296,9 +215,12 @@ extension ViewController: NSTouchBarDelegate {
             var layoutFormat = "H:|-8-"
             var size = NSSize(width: 8, height: 30)
             
-            for game in self.games_indexed {
+            for g in 0...self.games_indexed.count-1 {
+                let game: DGame = self.games_indexed[g]
                 let objectName = NSString(format: "button%@", game.eid)
-                let button = NSButton(title: game.vs + " | " + game.hs, image: getImageFromTeamName(team: game.vnn)!, target: nil, action: nil)
+                let button = NSButton(title: game.vs + " - " + game.hs, image: getImageFromTeamName(team: game.vnn)!, target: nil, action: #selector(ViewController.goToGameCenter))
+                button.tag = g
+                button.addSubview(NSImageView(image: getImageFromTeamName(team: game.hnn)!))
                 button.translatesAutoresizingMaskIntoConstraints = false
                 button.bezelColor = self.colors[game.hnn]
                 documentView.addSubview(button)
@@ -310,20 +232,17 @@ extension ViewController: NSTouchBarDelegate {
             layoutFormat.append("|")
             
             let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: layoutFormat, options: NSLayoutConstraint.FormatOptions.alignAllCenterY, metrics: nil, views: constraintViews as! [String : Any])
-            
             NSLayoutConstraint.activate(hConstraints)
             
             documentView.frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)
             sv.documentView = documentView
             
-            scrubberItem.view = sv
+            scrollItem.view = sv
             
-            //scrubber.bind("selectedIndex", to: self, withKeyPath: #keyPath(rating), options: nil)
-            return scrubberItem
+            return scrollItem
         default:
             return nil
         }
     }
     
 }
-
