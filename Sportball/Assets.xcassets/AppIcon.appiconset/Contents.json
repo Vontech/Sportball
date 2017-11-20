@@ -3,61 +3,61 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-16.png",
+      "filename" : "Big_border-16.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-32.png",
+      "filename" : "Big_border-32.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-32.png",
+      "filename" : "Big_border-32.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-64.png",
+      "filename" : "Big_border-64.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-128.png",
+      "filename" : "Big_border-128.png",
       "scale" : "1x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-256.png",
+      "filename" : "Big_border-256.png",
       "scale" : "2x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-256.png",
+      "filename" : "Big_border-256.png",
       "scale" : "1x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-512.png",
+      "filename" : "Big_border-512.png",
       "scale" : "2x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-512.png",
+      "filename" : "Big_border-512.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "Sportball_Icon_4-1024.png",
+      "filename" : "Big_border-1024.png",
       "scale" : "2x"
     }
   ],
